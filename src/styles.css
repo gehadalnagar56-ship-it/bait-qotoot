@@ -1,5 +1,5 @@
 :root {
-  font-family: "DM Sans", sans-serif;
+  font-family: "Nunito", sans-serif;
   color: #443443;
   background: #fff8fb;
   font-synthesis: none;
@@ -29,7 +29,7 @@ html[data-theme="dark"] {
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body { margin: 0; min-width: 0; color: var(--ink); background: var(--cream); transition: color .2s ease, background-color .2s ease; }
-button, input { font: inherit; }
+button, input, select, textarea { font: inherit; }
 a { color: inherit; text-decoration: none; }
 img { display: block; max-width: 100%; }
 .container { width: min(1120px, calc(100% - 48px)); margin-inline: auto; }
@@ -90,9 +90,7 @@ h1, h2, h3, p { margin-top: 0; }
 .floating-note b { font-size: 12px; }
 .floating-note small { margin-top: 2px; color: #898b82; font-size: 10px; }
 .hero-paw { position: absolute; top: 26px; right: 13px; width: 54px; color: #e6a079; opacity: .7; transform: rotate(19deg); }
-.hero-sparkle { position: absolute; color: #dca679; }
-.sparkle-one { top: 90px; left: 28px; font-size: 31px; }
-.sparkle-two { right: 25px; bottom: 65px; font-size: 27px; }
+.hero-paw-secondary { position: absolute; top: 90px; left: 22px; width: 25px; color: #c5a5d7; opacity: .8; transform: rotate(-17deg); }
 .hero-bottom { display: flex; align-items: center; gap: 17px; padding-block: 19px 24px; color: #89877e; font-size: 10px; }
 .bottom-line { width: 42px; height: 1px; background: #d7d0c5; }
 
@@ -354,7 +352,6 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
   .hero-image-frame { width: min(310px, 78%); height: 350px; }
   .floating-note { right: 0; bottom: 25px; padding: 10px 12px; }
   .hero-paw { top: 10px; right: 4px; }
-  .sparkle-one { top: 54px; left: 10px; }
   .hero-bottom { padding-top: 10px; font-size: 9px; }
   .intro-grid { grid-template-columns: 1fr; gap: 36px; }
   .intro-image { height: 340px; margin-inline: 10px; }
@@ -420,7 +417,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .teaser-sticker span { font-size: 23px; line-height: 1; }
 .teaser-sticker b { margin-top: 4px; font-size: 10px; line-height: 1.2; }
 .teaser-float { position: absolute; bottom: 13px; left: -7px; display: flex; align-items: center; gap: 9px; padding: 12px 16px; border: 1px solid #eee5da; border-radius: 12px; color: #53624f; background: #fff; box-shadow: 0 11px 30px #4e372015; font-size: 10px; font-weight: 700; line-height: 1.5; }
-.teaser-float > span:first-child { color: #e78b5e; font-size: 22px; }
+.teaser-paw { width: 23px; flex: 0 0 23px; color: #e78b5e; }
 
 .shop-hero { position: relative; overflow: hidden; color: #fffaf2; background: radial-gradient(ellipse at 87% 45%, #52715a 0, transparent 37%), linear-gradient(115deg, #203b31, #294a3a 59%, #3a5a46); }
 .shop-hero::before, .shop-hero::after { position: absolute; width: 350px; height: 350px; border: 1px solid #ffffff0f; border-radius: 50%; content: ""; }
@@ -450,11 +447,10 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .shop-hero-note b, .shop-hero-note small { display: block; }
 .shop-hero-note b { font-size: 11px; }
 .shop-hero-note small { margin-top: 2px; color: #7d8277; font-size: 10px; }
-.shop-sparkle { position: absolute; color: #f2b88e; }
-.shop-sparkle-one { top: 28px; left: 39px; }
-.shop-sparkle-two { right: 20px; top: 91px; }
-.shop-sparkle svg { width: 28px; height: 28px; }
-.shop-sparkle-two svg { width: 21px; height: 21px; }
+.shop-paw { position: absolute; color: #f2b88e; opacity: .9; }
+.shop-paw-one { top: 28px; left: 39px; width: 29px; transform: rotate(-17deg); }
+.shop-paw-two { top: 91px; right: 20px; width: 22px; transform: rotate(15deg); }
+.shop-perk-paw { width: 16px; height: 16px; color: #f2b88e; }
 .shop-category-bar { position: sticky; z-index: 8; top: 88px; border-bottom: 1px solid #e8e0d4; background: color-mix(in srgb, var(--cream) 93%, transparent); backdrop-filter: blur(14px); }
 .shop-category-inner { min-height: 64px; display: flex; align-items: center; gap: 14px; }
 .shop-category-inner > a { display: inline-flex; align-items: center; gap: 9px; padding: 9px 13px; border-radius: 9px; color: #38453b; font-size: 11px; font-weight: 700; transition: background .2s ease; }
@@ -488,7 +484,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .product-category-icon svg { width: 19px; height: 19px; }
 .product-info { padding: 14px 14px 15px; }
 .product-rating { color: #70766a; font-size: 10px; }
-.product-rating > span { color: #e39b4a; font-size: 12px; }
+.product-rating > .rating-paw { display: inline-block; width: 12px; height: 12px; color: #e39b4a; vertical-align: -2px; }
 .product-rating small { color: #98988e; font-size: 8px; }
 .product-info h3 { min-height: 38px; margin: 8px 0 2px; color: #303a31; font-size: 13px; font-weight: 800; line-height: 1.5; }
 .product-name-link:hover { color: var(--orange-dark); }
@@ -718,7 +714,7 @@ html[data-theme="dark"] .cart-success > span { color: #b1dbad; background: #2d45
 .hero { background: radial-gradient(ellipse at 86% 27%, #fff 0, transparent 30%), linear-gradient(125deg, #fff1f6, #fff8fb 62%, #f5effb); }
 .hero-image-frame { box-shadow: 0 24px 60px #9f63801f; }
 .hero-paw { color: #e89ab5; }
-.sparkle-one, .sparkle-two { color: #c5a5d7; }
+.hero-paw-secondary { color: #c5a5d7; }
 .hero-proof .rating span { color: var(--orange-dark); }
 .intro-sticker { box-shadow: 0 14px 35px #c9688c30; }
 .cats-section, .contact-section { background: linear-gradient(145deg, #fff0f5, #fff9fc 75%); }
@@ -771,7 +767,7 @@ html[data-theme="dark"] .cart-success > span { color: #b1dbad; background: #2d45
 .product-card { border-radius: 17px; }
 .product-card:hover { border-color: #e6b5c9; box-shadow: 0 20px 42px #9b58731b; }
 .product-badge { color: #7e526b; background: #fff8fceF; }
-.product-rating > span { color: #e69b76; }
+.product-rating > .rating-paw { color: #e69b76; }
 .product-info h3 { color: #503c50; }
 .product-buy-row > strong, .product-detail-buy > strong { color: #81546f; }
 .add-to-cart { border-color: #eed9e4; color: #81546f; background: #fff5f9; }

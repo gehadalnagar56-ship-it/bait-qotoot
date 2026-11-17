@@ -132,7 +132,7 @@ function ShopIcon({ name, className = "" }) {
   if (name === "bag") {
     return <svg {...sharedProps}><path d="M7 11h18l1 15H6l1-15Z" /><path d="M12 12V8a4 4 0 0 1 8 0v4" /></svg>;
   }
-  return <svg {...sharedProps}><path d="m6 26 15-15M18 7l7 7M7 6l1.5 4.5L13 12l-4.5 1.5L7 18l-1.5-4.5L1 12l4.5-1.5L7 6ZM23 19l1.2 3.3L27.5 23.5l-3.3 1.2L23 28l-1.2-3.3-3.3-1.2 3.3-1.2L23 19Z" /></svg>;
+  return <Paw className={className} />;
 }
 
 function CatCard({ cat, isFavorite, onToggleFavorite, onViewDetails }) {
@@ -188,7 +188,7 @@ function ProductCard({ product, quantity, onAdd }) {
         <span className="product-category-icon"><ShopIcon name={product.icon || (product.category === "food" ? "food" : "wand")} /></span>
       </div>
       <div className="product-info">
-        <div className="product-rating"><span aria-hidden="true">★</span> {product.rating} <small>· Customer rating</small></div>
+        <div className="product-rating"><Paw className="rating-paw" /> {product.rating} <small>· Customer rating</small></div>
         <h3><Link className="product-name-link" to={`/shop/${product.id}`}>{product.name}</Link></h3>
         <p>{product.detail}</p>
         <Link className="product-detail-link" to={`/shop/${product.id}`}>View details <span aria-hidden="true">→</span></Link>
@@ -846,7 +846,7 @@ function App() {
                   Meet our cats <span aria-hidden="true">→</span>
                 </a>
                 <a className="text-link" href="#about">
-                  Get to know us <span aria-hidden="true">⌄</span>
+                  Get to know us <span aria-hidden="true">↓</span>
                 </a>
               </div>
               <div className="hero-proof">
@@ -867,8 +867,7 @@ function App() {
                 <span><b>Find your new companion</b><small>Meet the cats looking for a home</small></span>
               </div>
               <Paw className="hero-paw" />
-              <span className="hero-sparkle sparkle-one">✳</span>
-              <span className="hero-sparkle sparkle-two">✦</span>
+              <Paw className="hero-paw-secondary" />
             </div>
           </div>
           <div className="hero-bottom container">
@@ -1047,7 +1046,7 @@ function App() {
             <div className="shop-teaser-art">
               <img src="https://images.unsplash.com/photo-1589924691995-400dc9ecc119?auto=format&fit=crop&w=800&q=85" alt="A bowl of pet food ready for a happy cat" loading="lazy" />
               <div className="teaser-sticker"><span>♡</span><b>Selected for<br />your cat</b></div>
-              <div className="teaser-float"><span>✦</span><span>Food, toys &<br />everyday essentials</span></div>
+              <div className="teaser-float"><Paw className="teaser-paw" /><span>Food, toys &<br />everyday essentials</span></div>
             </div>
           </div>
         </section>}
@@ -1064,7 +1063,7 @@ function App() {
                   <span><b>{shopProducts.length}</b> products to explore</span>
                 </div>
                 <div className="shop-perks">
-                  <span><ShopIcon name="sparkle" /> Carefully selected</span><span><ShopIcon name="heart" /> Made for cats</span><span><ShopIcon name="tunnel" /> For everyday life at home</span>
+                  <span><Paw className="shop-perk-paw" /> Carefully selected</span><span><ShopIcon name="heart" /> Made for cats</span><span><ShopIcon name="tunnel" /> For everyday life at home</span>
                 </div>
               </div>
               <div className="shop-hero-art">
@@ -1072,8 +1071,8 @@ function App() {
                 <div className="shop-orbit orbit-one" />
                 <div className="shop-orbit orbit-two" />
                 <div className="shop-hero-note"><span><ShopIcon name="heart" /></span><div><b>Everyday essentials</b><small>for happy, healthy cats</small></div></div>
-                <span className="shop-sparkle shop-sparkle-one"><ShopIcon name="sparkle" /></span>
-                <span className="shop-sparkle shop-sparkle-two"><ShopIcon name="sparkle" /></span>
+                <Paw className="shop-paw shop-paw-one" />
+                <Paw className="shop-paw shop-paw-two" />
               </div>
             </div>
           </div>
@@ -1120,7 +1119,7 @@ function App() {
               </div>
               <div className="product-detail-copy">
                 <span className="eyebrow"><ShopIcon name={selectedProduct.category === "food" ? "food" : selectedProduct.icon} /> {selectedProduct.category === "food" ? "FOOD & TREATS" : "TOYS & PLAY"}</span>
-                <div className="product-rating"><span aria-hidden="true">★</span> {selectedProduct.rating} <small>· Customer rating</small></div>
+                <div className="product-rating"><Paw className="rating-paw" /> {selectedProduct.rating} <small>· Customer rating</small></div>
                 <h1>{selectedProduct.name}</h1>
                 <p className="product-detail-description">{selectedProduct.description}</p>
                 <p className="product-detail-meta">{selectedProduct.detail}</p>
